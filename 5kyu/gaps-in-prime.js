@@ -39,8 +39,6 @@
 
 // #Ref https://en.wikipedia.org/wiki/Prime_gap
 
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SO CLOSE ON THIS ONE ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const gap = (g, m, n) => {
     const gapSize = g;
     const firstNum = m;
