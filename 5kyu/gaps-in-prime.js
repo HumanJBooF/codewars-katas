@@ -45,36 +45,27 @@ const gap = (g, m, n) => {
     const gapSize = g;
     const firstNum = m;
     const lastNum = n;
-    let primeNumbers = [];
+    let lastPrime = 0;
 
     const checkPrime = i => {
-        if (i <= 1) return false;
-        if (i === 2) return true;
-
-        for (j = 2; j < i; j++) {
-            if (i % j === 0) {
+        for (let j = 2; j <= Math.sqrt(i); j++)
+            if (i % j == 0) {
                 return false;
             }
-            return true;
+        return true;
+    }
+    let primes = [];
+    for (let i = firstNum; i <= lastNum; i++)
+        if (checkPrime(i)) {
+            if (i - lastPrime == gapSize) {
+                primes.push(lastPrime, i)
+                return primes
+            } else lastPrime = i;
         }
-    }
+    return null;
 
-    for (i = firstNum; i <= lastNum; i++) {
-        checkPrime(i)
-            ? primeNumbers.push(i)
-            : null
-    }
-
-    const final = [];
-    if (primeNumbers.length) {
-        for (let j = 1; j < primeNumbers.length; j++) {
-            if (primeNumbers[j] - primeNumbers[0] === gapSize) {
-                final.push(primeNumbers[0], primeNumbers[j])
-            }
-        }
-    }
-    // Working for 2 but nothing above yet :()
-    console.log(final);
 }
-gap(2, 300, 310)
-gap(4, 300, 310)
+
+console.log(gap(2, 100, 110))
+console.log(gap(4, 100, 110))
+console.log(gap(10, 300, 400))
