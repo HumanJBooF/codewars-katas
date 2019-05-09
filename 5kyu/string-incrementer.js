@@ -30,4 +30,4 @@ const incrementString = str => {
     }
 }
 
-incrementString('romanissupergay0099')
+incrementString('romanissupercool0099')
